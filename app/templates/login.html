@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="highlight.css" />
+	<link rel="icon" href="favicon.png" type="image/png" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            ;
+        }
+
+        #page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            ;
+            padding: .5rem;
+        }
+
+        main {
+            border-top: 1px solid grey;
+            border-bottom: 1px solid grey;
+            /* min-height: 50%; */
+            flex-grow: 1;
+            flex-shrink: 1;
+            overflow:auto;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        label {
+            justify-self: end;
+            ;
+        }
+
+        #controls {
+            /* min-height: 20%; */
+            font-size: 1.4rem;
+            display: grid;
+            grid-template-columns: 1fr 6fr 1fr 1fr;
+            grid-auto-rows: 1.4rem;
+            ;
+            grid-gap: .5rem;
+            max-width: 70rem;
+
+        }
+
+        #output {
+            width: 100%;
+            height: 100%;
+            background: #eee;
+            overflow: auto;
+            margin: 0;
+        }
+        #output p {
+            border-bottom: 1px solid grey;
+            padding-bottom: .25rem;
+        }
+        #header {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        #header li {
+            display: block;
+            font-style: italic;
+            font-size: 1.2rem;
+            padding: .25rem;
+            margin:0 1rem;
+        }
+    </style>
+
+</head>
+
+<body></br></br></br></br></br>
+    <div align="center">
+    <div id="page">
+        <div class="header">
+            <h1 class="word">Log in</h1>
+        </div>
+        <form action="" method=post>
+            <div class="msg">{{ msg }}</div>
+            <dl>
+                {{ form.csrf_token }}
+                
+                <dt>Username:</br>
+                <dd>{{ form.username }}
+                <dt>Password:</br>
+                <dd>{{ form.password }}
+            </dl>
+            <p>
+                <input type=submit value=Login>
+                <input type=hidden value="{{ next or '' }}" name=next>
+        </form>
+        <p class="bottom">Don't have an account? <a class="bottom" href="register"> Register here!</a></p>
+    </div>
+    </div>
+</body>
